@@ -1,0 +1,2 @@
+class CountMinSketch(object):
+    pass

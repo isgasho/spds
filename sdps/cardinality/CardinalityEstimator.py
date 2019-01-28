@@ -1,0 +1,2 @@
+class CardinalityEstimator(object):
+    pass

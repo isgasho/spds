@@ -1,0 +1,2 @@
+class CuckooFilter(object):
+    pass

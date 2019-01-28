@@ -1,0 +1,2 @@
+class AffirmativeSampling(object):
+    pass

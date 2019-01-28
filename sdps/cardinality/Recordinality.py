@@ -1,0 +1,2 @@
+class Recordinality(object):
+    pass
