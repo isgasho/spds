@@ -1,2 +1,0 @@
-class MinHash(object):
-    pass
