@@ -1,7 +1,6 @@
 package cardinality
 
 import (
-	"hash"
 	"math"
 
 	"github.com/cespare/xxhash"
@@ -14,22 +13,17 @@ type KMV struct {
 	values       map[uint64]string
 	size         int
 	seed         uint64
-	hasher       hash.Hash64
 	totalCounter uint64
 }
 
-func NewKMV(size int) KMV {
-	return NewKMVWithSeed(size, 0)
-}
-
-func NewKMVWithSeed(size int, seed uint64) KMV {
-	hasher := xxhash.New()
-	return KMV{
-		store:  common.MinTable{},
-		values: make(map[uint64]string, size),
-		size:   size,
-		seed:   seed,
-		hasher: hasher}
+func NewKMV(size int) *KMV {
+	return &KMV{
+		store:        common.NewMinTable(size),
+		values:       make(map[uint64]string, size),
+		size:         size,
+		seed:         0,
+		totalCounter: 0,
+	}
 }
 
 func (kmv *KMV) contains(hash uint64) bool {

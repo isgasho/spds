@@ -5,8 +5,8 @@ type Dummy struct {
 	totalCounter uint64
 }
 
-func NewDummy() Dummy {
-	return Dummy{
+func NewDummy() *Dummy {
+	return &Dummy{
 		values: make(map[string]bool, 1024)}
 }
 
