@@ -3,7 +3,10 @@ package common
 type MinTable struct {
 	values      []uint64
 	initialSize int
-	maxSize     int
+}
+
+func NewMinTable(size int) MinTable {
+	return MinTable{initialSize: size}
 }
 
 func (mt *MinTable) Size() int {
@@ -42,7 +45,7 @@ func (mt *MinTable) Contains(value uint64) bool {
 }
 
 func (mt *MinTable) IsMin(value uint64) bool {
-	if len(mt.values) == 0 || mt.Last() > value {
+	if (len(mt.values) < mt.initialSize || mt.Last() > value) && !mt.Contains(value) {
 		return true
 	}
 	return false
@@ -53,17 +56,18 @@ func (mt *MinTable) Insert(value uint64) int {
 		return -1
 	}
 
-	index := len(mt.values) - 1
-	done := false
-
 	mt.values = append(mt.values, value)
 
+	index := len(mt.values) - 1
+	done := false
 	for done != true {
 		if index == 0 || mt.values[index-1] < mt.values[index] {
 			done = true
 		} else if mt.values[index-1] > mt.values[index] {
 			mt.values[index-1], mt.values[index] = mt.values[index], mt.values[index-1]
 			index--
+		} else {
+			done = true
 		}
 	}
 	return index
