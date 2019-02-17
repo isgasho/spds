@@ -1,2 +1,0 @@
-class SpaceSaving(object):
-    pass

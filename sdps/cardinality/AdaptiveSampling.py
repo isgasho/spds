@@ -1,2 +1,0 @@
-class AdaptiveSampling(object):
-    pass

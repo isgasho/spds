@@ -1,2 +1,0 @@
-class FrequencyEstmator(object):
-    pass
