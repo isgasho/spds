@@ -3,7 +3,8 @@ package cardinality
 import (
 	"hash"
 	"math"
-	"xxhash"
+
+	"github.com/cespare/xxhash"
 
 	"spds/internal/pkg/common"
 )
