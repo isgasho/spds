@@ -1,4 +1,4 @@
-package sampling
+package sample
 
 type Sampler interface {
 	Sample() []string
