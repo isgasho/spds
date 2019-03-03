@@ -38,7 +38,7 @@ var cardinalityCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		scanner := getScanner()
 		estimator := getCardinalityEstimator()
-		// Loop over all lines in the file and print them.
+
 		for scanner.Scan() {
 			estimator.Add(scanner.Text())
 		}
